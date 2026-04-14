@@ -1,3 +1,4 @@
+using OptimisticPricingAPI;
 using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -15,18 +16,8 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-
-app.MapGet("/getprice", () =>
-{
-    return new PriceForecast("Optimistic Pricing API", DateTime.Today, 100m, 500m);
-})
-.WithName("GetPrice");
-
-app.MapGet("/home", () =>
-{
-    return "Hello from Optimistic Pricing API!";
-})
-.WithName("Home");
+// Map custom endpoints defined in APIEndpointMapper
+app.MapCustomEndpoints();
 
 app.MapDefaultEndpoints();
 app.Run();
