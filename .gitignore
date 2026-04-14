@@ -1,0 +1,147 @@
+# Visual Studio Code / Visual Studio 2015 and newer
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln.docstates
+
+# Rider
+.idea/
+
+# User-specific files
+*.user
+*.userosscache
+*.suo
+*.sln.docstates
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+# Visual Studio IntelliSense
+*.opendb
+
+# Resharper
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.DotSettings.user
+
+# NuGet
+*.nuget/
+*.nupkg
+*.paket/paket-files/
+paket-files/
+
+# MSTest test Results
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+
+# NCrunch
+[Nn]Crunch*/
+.*Crunch*.local.xml
+
+# ReSharper
+*.suo
+*.[Cc]ache
+*.resharper
+*.resharper.user
+
+# TeamCity
+_TeamCity*
+
+# DotCover
+*.dotCover
+
+# AxoCover
+.axoCover/*
+!.axoCover/settings.json
+
+# Coverlet
+coverage/
+
+# NCover
+*.nccov
+
+# Visual Studio Code Coverage Results
+*.coverage
+*.coveragexml
+
+# Visual Studio test results
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+
+# TFS 2012 Local Workspace
+$tf/
+
+# Guidance Automation Toolkit
+*.gpState
+
+# DotCover
+*.dotCover
+
+# Visual Studio SQL Server Project
+*.bak
+*.sqlbak
+*.dacpac
+*.dacpac.*
+
+# Rider
+.idea/
+*.sln.iml
+
+# GhostDoc
+[Gg]host[Dd]oc[.generated]
+
+# Paket dependency manager
+.paket/paket.exe
+.paket/paket.targets
+paket-files/
+.paket/
+
+# FAKE - F# Make
+.fake/
+
+# JetBrains Rider
+.idea/
+*.sln.iml
+*.ipr
+*.iws
+.idea/
+*.resharper
+*.resharper.user
+*.dotCover
+*.dotSettings
+*.nunit
+*.nunit.*
+*.sln.dotSettings.user
+
+# CodeRush
+.sln.xml
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# Visual Studio Cach Manager
+.vs/

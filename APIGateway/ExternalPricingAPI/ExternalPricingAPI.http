@@ -1,0 +1,13 @@
+@ExternalPricingAPI_HostAddress = http://localhost:5258
+
+### Get price from Optimistic Pricing API directly
+GET {{ExternalPricingAPI_HostAddress}}/getprice
+Accept: application/json
+
+###
+
+### Home endpoint
+GET {{ExternalPricingAPI_HostAddress}}/home
+Accept: application/json
+
+###

@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="APIGateway.AppHost/APIGateway.AppHost.csproj" />
+  <Project Path="APIGateway.ServiceDefaults/APIGateway.ServiceDefaults.csproj" />
+  <Project Path="APIPricingGateway/APIPricingGateway.csproj" />
+  <Project Path="ExternalPricingAPI/OptimisticPricingAPI.csproj" />
+  <Project Path="PricingAPI/PessimisticPricingAPI.csproj" />
+</Solution>

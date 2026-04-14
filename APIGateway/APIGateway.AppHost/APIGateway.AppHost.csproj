@@ -1,0 +1,17 @@
+<Project Sdk="Aspire.AppHost.Sdk/13.1.0">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <UserSecretsId>0e6f4bff-7f33-4c9c-ba80-33b1cb3bf98a</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\APIPricingGateway\APIPricingGateway.csproj" />
+    <ProjectReference Include="..\ExternalPricingAPI\OptimisticPricingAPI.csproj" />
+    <ProjectReference Include="..\PricingAPI\PessimisticPricingAPI.csproj" />
+  </ItemGroup>
+
+</Project>

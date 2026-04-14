@@ -1,0 +1,39 @@
+@APIPricingGateway_HostAddress = http://localhost:5064
+
+### Demo 1: Round-Robin Load Balancing
+### Hit this repeatedly — Source alternates between Pessimistic and Optimistic.
+### Check response headers for X-Served-By and X-Gateway.
+GET {{APIPricingGateway_HostAddress}}/getprice
+Accept: application/json
+
+###
+
+### Demo 2: Path-Based API Versioning — always routes to Pessimistic Pricing API
+GET {{APIPricingGateway_HostAddress}}/v1/getprice
+Accept: application/json
+
+###
+
+### Demo 2: Path-Based API Versioning — always routes to Optimistic Pricing API
+GET {{APIPricingGateway_HostAddress}}/v2/getprice
+Accept: application/json
+
+###
+
+### Demo 3: Random Load Balancing — randomly picks Pessimistic or Optimistic /home
+GET {{APIPricingGateway_HostAddress}}/random
+Accept: application/json
+
+###
+
+### Demo 4: Rate Limiting — send this 6+ times quickly to trigger a 429 response
+GET {{APIPricingGateway_HostAddress}}/getprice
+Accept: application/json
+
+###
+
+### Demo 5: Catch-All Route — anything unmatched falls through to Pessimistic /home
+GET {{APIPricingGateway_HostAddress}}/this-route-does-not-exist
+Accept: application/json
+
+###

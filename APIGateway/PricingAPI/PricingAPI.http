@@ -1,0 +1,13 @@
+@PricingAPI_HostAddress = http://localhost:5018
+
+### Get price from Pessimistic Pricing API directly
+GET {{PricingAPI_HostAddress}}/getprice
+Accept: application/json
+
+###
+
+### Home endpoint
+GET {{PricingAPI_HostAddress}}/home
+Accept: application/json
+
+###
