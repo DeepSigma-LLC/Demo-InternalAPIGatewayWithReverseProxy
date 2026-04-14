@@ -10,8 +10,48 @@ This project was built with three goals in mind:
 
 ---
 
+## Why "Internal" API Gateway?
+
+This project is deliberately scoped as an **internal** API gateway — meaning it is designed to sit between services inside your network (or VPC), not as the public-facing front door for internet traffic. Here's why that distinction matters.
+
+### The cost problem with self-hosted public gateways
+
+A custom YARP gateway is fully capable of routing, authentication, authorization, rate limiting, and more. However, when exposed directly to the public internet, **every inbound request — legitimate or not — must be received, parsed, and processed by your application code running on compute you pay for**. In a DDoS attack or even a sustained traffic spike, your gateway becomes the bottleneck: it saturates CPU and memory, and you absorb the full cloud compute bill for processing millions of malicious requests that should never have reached your application in the first place.
+
+### How managed cloud API gateways differ
+
+Cloud providers offer managed API gateway products that operate at the **network edge**, far in front of your application infrastructure:
+
+| Provider | Product |
+|---|---|
+| **Azure** | Azure API Management, Azure Front Door, Azure Application Gateway |
+| **AWS** | Amazon API Gateway, CloudFront, Elastic Load Balancing |
+| **Google Cloud** | Apigee, Cloud Endpoints, Cloud Load Balancing |
+
+These services are built differently than a self-hosted reverse proxy:
+
+- **Edge-level DDoS absorption** — traffic is filtered at the provider's global network edge (thousands of points of presence) before it ever reaches your virtual network. Volumetric attacks are mitigated at the infrastructure layer, not by your application.
+- **Pay-per-request pricing** — you pay for legitimate API calls that pass through, not for raw network traffic your server had to process and reject. Most managed gateways don't charge you for requests blocked by WAF rules or rate limits.
+- **Built-in WAF and bot protection** — Web Application Firewall rules, IP reputation lists, geo-blocking, and bot detection are applied at the edge with zero application code.
+- **Global scale without capacity planning** — the provider handles horizontal scaling across regions automatically. You don't need to provision, monitor, or auto-scale gateway instances.
+- **TLS termination at the edge** — SSL/TLS handshakes (expensive CPU operations) happen at the provider's edge, not on your compute.
+
+### When a custom internal gateway makes sense
+
+A self-hosted YARP gateway shines **inside** your network perimeter:
+
+- **Service-to-service routing** — route traffic between internal microservices with fine-grained path, header, and version-based rules.
+- **Internal rate limiting and quotas** — protect backend services from noisy-neighbor problems across internal teams.
+- **Protocol translation and request shaping** — transform headers, rewrite paths, and aggregate responses before they reach internal consumers.
+- **Zero external dependency** — no vendor lock-in, no per-request fees for internal traffic, full control over routing logic.
+
+The pattern used in this project is ideal for the internal leg: a managed cloud gateway handles public ingress, DDoS protection, and coarse-grained auth at the edge, while your custom YARP gateway handles intelligent routing, versioning, and fine-grained traffic management between services behind the firewall.
+
+---
+
 ## Table of Contents
 
+- [Why "Internal" API Gateway?](#why-internal-api-gateway)
 - [Architecture Overview](#architecture-overview)
 - [Project Structure](#project-structure)
 - [Prerequisites](#prerequisites)
